@@ -1,11 +1,11 @@
-# RDS Backup & Restore
+## RDS Backup & Restore
 
-Requires S3 bucket with access policy linked to db.  As root user under Master:
+Requires S3 bucket with access policy linked to db.  As root user under Master
 ```exec msdb.dbo.rds_backup_database
 @source_db_name='analysis_ceg',
 @s3_arn_to_backup_to='arn:aws:s3:::eastlondondb/bak_files/analysis_ceg.bak',
-@overwrite_s3_backup_file=1;```
-
+@overwrite_s3_backup_file=1;
+```
                 @source_db_name           : Source database name to create a full backup of.
                 @s3_arn_to_backup_to      : S3 key ARN to store the backup file at.
                 @kms_master_key_arn       : KMS customer master key ARN to encrypt the backup file with.
